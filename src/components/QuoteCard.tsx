@@ -23,13 +23,11 @@ function QuoteCard({ quote }: QuoteCardProps) {
     const newText = e.target.innerText;
     const newQuote = { ...quote, text: newText };
     console.log(newQuote);
-  
+
     updateQuote(newQuote);
   };
 
   const handleTextChangeFinish = () => {
-    console.log("handleTextChangeFinish");
-  
     if (quote.id === undefined) return;
     textUpdateMutation
       .mutateAsync({ id: quote.id, text: quote.text })
@@ -58,10 +56,7 @@ function QuoteCard({ quote }: QuoteCardProps) {
   };
 
   return (
-    <div
-      key={quote.id}
-      className="items-between m-4 flex h-72 w-72 flex-col justify-between rounded-lg bg-slate-200 bg-opacity-50 p-5"
-    >
+    <div className="items-between m-4 flex h-72 w-72  flex-col justify-between rounded-lg bg-slate-200 bg-opacity-50 p-5">
       <button onClick={deleteQuote} className="">
         <AiOutlineDelete className="h-12 w-12 text-slate-200" />
       </button>
